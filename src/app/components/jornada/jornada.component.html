@@ -1,0 +1,31 @@
+<div class="filtros">
+  <label>
+    Fecha:
+    <input type="date" [(ngModel)]="fecha" (change)="onFechaChange()">
+  </label>
+
+  <label>
+    Categoría:
+    <select [(ngModel)]="categoria" (change)="onCategoriaChange()">
+      <option *ngFor="let c of categorias" [value]="c.id">{{ c.nombre }}</option>
+    </select>
+  </label>
+</div>
+
+<div *ngIf="partidos.length > 0; else noPartidos">
+  <ul class="lista-partidos">
+    <li *ngFor="let p of partidos">
+      <button (click)="verPartido(p.id)">
+        <img [src]="'https://basketaraba.com/actadigital/' + p.logoLocal" alt="{{p.equipoLocal}}" width="25">
+        {{ p.equipoLocal }} vs
+        <img [src]="'https://basketaraba.com/actadigital/' + p.logoVisitante" alt="{{p.equipoVisitante}}" width="25">
+        {{ p.equipoVisitante }}
+        ({{ p.fecha }})
+      </button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noPartidos>
+  <p>No hay partidos disponibles para la fecha y categoría seleccionadas.</p>
+</ng-template>

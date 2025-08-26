@@ -1,0 +1,52 @@
+<div *ngIf="partido; else loading">
+  <h2>{{ partido.estado }}</h2>
+  <p>{{ partido.categoria }} - {{ partido.fecha }}</p>
+
+  <div *ngFor="let eq of partido.equipos" class="equipo">
+    <h3 [style.color]="eq.color">{{ eq.nombre }}</h3>
+    <table class="tabla-jugadoras">
+      <thead>
+        <tr>
+          <th>Jugador</th>
+          <th>PTS</th>
+          <th>T2</th>
+          <th>T3</th>
+          <th>TL</th>
+          <th>FP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let j of eq.jugadores">
+          <td>{{ j.nombre }}</td>
+          <td>{{ j.pts }}</td>
+          <td>{{ j.t2 }}</td>
+          <td>{{ j.t3 }}</td>
+          <td>{{ j.tl }}</td>
+          <td>{{ j.fp }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="acciones" *ngIf="partido.accionesPorPeriodo">
+    <h3>Acciones del partido</h3>
+    <div *ngFor="let periodo of objectKeys(partido.accionesPorPeriodo)">
+      <h4>{{ periodo }}</h4>
+      <ul>
+        <li *ngFor="let acc of partido.accionesPorPeriodo[periodo]">
+          <img [src]="'https://basketaraba.com/actadigital/' + acc.imagen"  [alt]="acc.descripcion" class="icono-accion">
+          <strong>{{ acc.tiempo }}</strong> - 
+          <span [style.color]="getColorByEquipo(acc.equipo)">{{ acc.equipo }}</span>:
+          {{ acc.descripcion }}
+          <span *ngIf="acc.jugador"> ({{ acc.jugador }})</span>
+          [{{ acc.marcadorLocal }} - {{ acc.marcadorVisitante }}]
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #loading>
+  <p>Cargando datos del partido...</p>
+</ng-template>

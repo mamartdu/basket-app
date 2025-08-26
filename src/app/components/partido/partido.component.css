@@ -1,0 +1,59 @@
+.equipo {
+  margin-bottom: 20px;
+}
+
+.tabla-jugadoras {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.tabla-jugadoras th,
+.tabla-jugadoras td {
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  text-align: center;
+}
+
+.tabla-jugadoras th {
+  background-color: #f5f5f5;
+}
+
+h2 {
+  color: #ff5722;
+  margin-bottom: 5px;
+}
+
+h3 {
+  margin: 10px 0 5px 0;
+}
+
+.acciones {
+  margin-top: 30px;
+}
+
+.acciones h3 {
+  color: #444;
+}
+
+.acciones h4 {
+  margin-top: 20px;
+  color: #666;
+}
+
+.acciones ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.acciones li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.icono-accion {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
