@@ -91,9 +91,9 @@ private parseHtml(html: string): Partido {
     accionesPorPeriodo[acc.periodo].push(acc);
   });
 
-  Object.keys(accionesPorPeriodo).forEach(periodo => {
+  /*Object.keys(accionesPorPeriodo).forEach(periodo => {
   accionesPorPeriodo[periodo].reverse();
-  });
+  });*/
 
   return { estado, categoria, fecha, equipos, accionesPorPeriodo };
 }
